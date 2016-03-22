@@ -43,7 +43,8 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         let session = AVAudioSession.sharedInstance()
         try! session.setCategory(AVAudioSessionCategoryPlayAndRecord)
         
-        try! audioRecorder = AVAudioRecorder(URL: filePath!, settings: [:])
+        let audioRecorder = AVAudioRecorder(URL: filePath!, settings: [:])
+        audioRecorder.delegate = self
         audioRecorder.meteringEnabled = true
         audioRecorder.prepareToRecord()
         audioRecorder.record()
@@ -75,9 +76,9 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "stopRecording") {
-            let playSoundsViewController = segue.destinationViewController as! PlaySoundsViewController
+            let playSoundsVC = segue.destinationViewController as! PlaySoundsViewController
             let recordedAudioURL = sender as! NSURL
-            playSoundsViewController.recordedAudio = recordedAudioURL
+            playSoundsVC.recordedAudio = recordedAudioURL
         }
     }
 }

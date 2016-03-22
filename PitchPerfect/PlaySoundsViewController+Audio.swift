@@ -39,7 +39,7 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
         print("Audio has been setup")
     }
     
-    func playSound(rate rate: Float? = nil, pitch: Float? = nil, _: Bool = false, reverb: Bool = false) {
+    func playSound(rate rate: Float? = nil, pitch: Float? = nil, echo: Bool = false, reverb: Bool = false) {
         
         // Initialize audio engine components
         audioEngine = AVAudioEngine()
@@ -86,7 +86,7 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
             
             var delayInSeconds: Double = 0
             
-            if let lastRenderTime = self.audioPlayerNode.lastRenderTime, let PlayerTime = self.audioPlayerNode.playerTimeForNodeTime(lastRenderTime) {
+            if let lastRenderTime = self.audioPlayerNode.lastRenderTime, let playerTime = self.audioPlayerNode.playerTimeForNodeTime(lastRenderTime) {
                 
                 if let rate = rate {
                     delayInSeconds = Double(self.audioFile.length - playerTime.sampleTime) / Double(self.audioFile.processingFormat.sampleRate) / Double(rate)

@@ -32,11 +32,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yCF-iO-w3S">
-                                <rect key="frame" x="276" y="408.5" width="50" height="50"/>
+                                <rect key="frame" x="275" y="409" width="50" height="50"/>
                                 <state key="normal" image="stopButton"/>
                                 <connections>
                                     <action selector="stopRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kSh-v9-yxW"/>
-                                    <segue destination="Ozy-Dm-bL2" kind="show" id="bTj-do-Hu3"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -55,6 +54,7 @@
                         <outlet property="recordButton" destination="cfY-Tn-gbX" id="wYK-TX-EZJ"/>
                         <outlet property="recordingLabel" destination="prG-yv-xVP" id="lWG-A2-vLb"/>
                         <outlet property="stopRecordingButton" destination="yCF-iO-w3S" id="5pE-zr-Wuh"/>
+                        <segue destination="Ozy-Dm-bL2" kind="show" identifier="stopRecording" id="kMX-l6-pT9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
